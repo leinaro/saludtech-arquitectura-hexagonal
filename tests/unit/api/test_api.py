@@ -4,8 +4,8 @@ import tempfile
 
 import pytest
 
-from aeroalpes.api import create_app, importar_modelos_alchemy
-from aeroalpes.config.db import db, init_db
+from saludtech.api import create_app, importar_modelos_alchemy
+from saludtech.config.db import db, init_db
 
 db_dir = os.path.abspath(os.path.dirname(__file__))
 unique_db_path = None
@@ -28,7 +28,7 @@ def app():
     with app.app_context():
         init_db(app)
 
-        from aeroalpes.config.db import db
+        from saludtech.config.db import db
 
         importar_modelos_alchemy()
         db.create_all()
